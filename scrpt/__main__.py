@@ -19,7 +19,7 @@ import sys
 from os import path
 from shutil import copyfile
 from datetime import datetime
-from scrpt.db_connection import connect_to_database
+import scrpt.database_connection as db
 
 def main() -> None:
     root.mainloop()
@@ -478,8 +478,12 @@ def next():
         dAte=datetime.now().strftime("%Y-%m-%d")
         tIme=datetime.now().strftime("%H:%M:%S")
         print(username, dAte, tIme, video_names[selected_video-1], video_name_final, duration)
-        connect_to_database(username, dAte, tIme, video_names[selected_video-1], video_name_final, duration)
 
+        SQL_statement = ("INSERT INTO usage_log (USERNAME, DATE, TIME, FILENAME0, FILENAME1, DURATION) VALUES (%s, %s, %s, %s, %s, %s)")
+        data = (username, dAte, tIme, video_names[selected_video-1], video_name_final, duration)
+        database_name = 'videorenamer'
+        db.post_request(SQL_statement, data, database_name)
+        
         next_button.config(state=DISABLED)
         skip_button.config(state=DISABLED)
         replay_button.config(state=DISABLED)
@@ -513,7 +517,12 @@ def next():
         dAte=datetime.now().strftime("%Y-%m-%d")
         tIme=datetime.now().strftime("%H:%M:%S")
         print(username, dAte, tIme, video_names[selected_video-1], video_name_final, duration)
-        connect_to_database(username, dAte, tIme, video_names[selected_video-1], video_name_final, duration)
+
+        SQL_statement = ("INSERT INTO usage_log (USERNAME, DATE, TIME, FILENAME0, FILENAME1, DURATION) VALUES (%s, %s, %s, %s, %s, %s)")
+        data = (username, dAte, tIme, video_names[selected_video-1], video_name_final, duration)
+        database_name = 'videorenamer'
+        db.post_request(SQL_statement, data, database_name)
+        
         old_time = datetime.now()
 
         my_label = Label(root)
