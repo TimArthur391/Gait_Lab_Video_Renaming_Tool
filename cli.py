@@ -1,9 +1,9 @@
 try:
-    from scrpt.__main__ import main
+    from scrpt.check_version_and_update import check_update
     import sys
 
     if __name__ == '__main__':
-        sys.exit(main())
+        sys.exit(check_update())
 except Exception as Argument:
     import time
     import os
