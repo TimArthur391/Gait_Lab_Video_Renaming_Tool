@@ -1,0 +1,10 @@
+create table usage_log (
+RECORDID int not null AUTO_INCREMENT,
+USERNAME varchar(255),
+DATE date,
+TIME time,
+FILENAME0 varchar(255),
+FILENAME1 varchar(255),
+DURATION float(10),
+primary key (RECORDID)
+)

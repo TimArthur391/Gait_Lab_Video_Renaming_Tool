@@ -1,0 +1,1 @@
+pyinstaller cli.spec --onedir --console -n Video_Renaming_Tool_V1.3 --icon Camcorder_Pro_icon-icons.com_54204.ico
