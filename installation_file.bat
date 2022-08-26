@@ -17,4 +17,4 @@ rem this will create a shortcut to the application you wish to run.
 rem edit 'APPLICATION_shortcut.lnk' below to the name of the shortcut you want to create
 rem edit 'Documents\FILENAME\APPLICATION_NAME.exe' below to the location of your application exectuable
 rem edit 'Documents\FILENAME' below to the folder location of your application executable
-powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%userprofile%\Desktop\Video_Renaming_Tool_V1.4_shortcut.lnk');$s.TargetPath='%userprofile%\Documents\Video_Renaming_Tool_V1.3\Video_Renaming_Tool_V1.4.exe';$s.WorkingDirectory='%userprofile%\Documents\Video_Renaming_Tool_V1.4';$s.Save()"
+powershell "$s=(New-Object -COM WScript.Shell).CreateShortcut('%userprofile%\Desktop\Video_Renaming_Tool_V1.4_shortcut.lnk');$s.TargetPath='%userprofile%\Documents\Video_Renaming_Tool_V1.4\Video_Renaming_Tool_V1.4.exe';$s.WorkingDirectory='%userprofile%\Documents\Video_Renaming_Tool_V1.4';$s.Save()"

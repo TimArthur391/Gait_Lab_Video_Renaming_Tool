@@ -15,7 +15,7 @@
 
 <div class="node">
   <a name="cli.py"></a>
-  <a target="code" href="///C:/Users/arthu/Desktop/Video_Renaming_App/V1.3/cli.py" type="text/plain"><tt>cli.py</tt></a>
+  <a target="code" href="///C:/Users/arthu/Documents/GitHub/Gait_Lab_Video_Renaming_Tool/cli.py" type="text/plain"><tt>cli.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#PIL">PIL</a>
@@ -152,13 +152,11 @@ imports:
  &#8226;   <a href="#enum">enum</a>
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#heapq">heapq</a>
- &#8226;   <a href="#imageio">imageio</a>
  &#8226;   <a href="#imageio_ffmpeg">imageio_ffmpeg</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#keyword">keyword</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
- &#8226;   <a href="#mysql.connector">mysql.connector</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#pyi_rth__tkinter.py">pyi_rth__tkinter.py</a>
@@ -169,12 +167,14 @@ imports:
  &#8226;   <a href="#pyi_rth_subprocess.py">pyi_rth_subprocess.py</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#reprlib">reprlib</a>
- &#8226;   <a href="#scrpt.__main__">scrpt.__main__</a>
+ &#8226;   <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
@@ -428,7 +428,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>'org.python'</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#copy">copy</a>
+    <a href="#pickle">pickle</a>
  &#8226;   <a href="#setuptools.sandbox">setuptools.sandbox</a>
  &#8226;   <a href="#xml.sax">xml.sax</a>
 
@@ -549,6 +549,7 @@ imports:
  &#8226;   <a href="#PIL.ImageSequence">PIL.ImageSequence</a>
  &#8226;   <a href="#PIL.ImageShow">PIL.ImageShow</a>
  &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
+ &#8226;   <a href="#PIL.Jpeg2KImagePlugin">PIL.Jpeg2KImagePlugin</a>
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
  &#8226;   <a href="#PIL.PaletteFile">PIL.PaletteFile</a>
  &#8226;   <a href="#PIL.PdfParser">PIL.PdfParser</a>
@@ -640,7 +641,6 @@ imported by:
  &#8226;   <a href="#PIL.features">PIL.features</a>
  &#8226;   <a href="#PyInstaller.building.splash">PyInstaller.building.splash</a>
  &#8226;   <a href="#cli.py">cli.py</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
 
   </div>
 
@@ -1202,7 +1202,6 @@ imported by:
  &#8226;   <a href="#PIL.XpmImagePlugin">PIL.XpmImagePlugin</a>
  &#8226;   <a href="#PIL.features">PIL.features</a>
  &#8226;   <a href="#PyInstaller.building.splash">PyInstaller.building.splash</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
 
   </div>
 
@@ -1493,7 +1492,6 @@ imports:
 imported by:
     <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.SpiderImagePlugin">PIL.SpiderImagePlugin</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
 
   </div>
 
@@ -1557,7 +1555,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
+    <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
 
   </div>
@@ -2384,7 +2383,7 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.packaging.tags">pkg_resources._vendor.packaging.tags</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging.utils">pkg_resources._vendor.packaging.utils</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging.version">pkg_resources._vendor.packaging.version</a>
- &#8226;   <a href="#scrpt.db_connection">scrpt.db_connection</a>
+ &#8226;   <a href="#scrpt.database_connection">scrpt.database_connection</a>
  &#8226;   <a href="#setuptools._vendor.packaging">setuptools._vendor.packaging</a>
  &#8226;   <a href="#setuptools._vendor.packaging.__about__">setuptools._vendor.packaging.__about__</a>
  &#8226;   <a href="#setuptools._vendor.packaging._compat">setuptools._vendor.packaging._compat</a>
@@ -5412,7 +5411,6 @@ imported by:
  &#8226;   <a href="#doctest">doctest</a>
  &#8226;   <a href="#email.feedparser">email.feedparser</a>
  &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
  &#8226;   <a href="#importlib_metadata._collections">importlib_metadata._collections</a>
@@ -5810,8 +5808,8 @@ imported by:
   <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'org.python'">'org.python'</a>
- &#8226;   <a href="#copyreg">copyreg</a>
+    <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -5932,7 +5930,6 @@ imported by:
  &#8226;   <a href="#ctypes.macholib">ctypes.macholib</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
- &#8226;   <a href="#imageio.core.findlib">imageio.core.findlib</a>
  &#8226;   <a href="#multiprocessing.sharedctypes">multiprocessing.sharedctypes</a>
  &#8226;   <a href="#numpy._distributor_init">numpy._distributor_init</a>
  &#8226;   <a href="#numpy.core._dtype_ctypes">numpy.core._dtype_ctypes</a>
@@ -6157,7 +6154,6 @@ imported by:
  &#8226;   <a href="#mysql.connector.protocol">mysql.connector.protocol</a>
  &#8226;   <a href="#pkg_resources._vendor.pyparsing">pkg_resources._vendor.pyparsing</a>
  &#8226;   <a href="#plistlib">plistlib</a>
- &#8226;   <a href="#scrpt.__main__">scrpt.__main__</a>
  &#8226;   <a href="#setuptools._vendor.pyparsing">setuptools._vendor.pyparsing</a>
  &#8226;   <a href="#test.support.testresult">test.support.testresult</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
@@ -10298,7 +10294,6 @@ imported by:
  &#8226;   <a href="#asyncio.constants">asyncio.constants</a>
  &#8226;   <a href="#cli.py">cli.py</a>
  &#8226;   <a href="#http">http</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#plistlib">plistlib</a>
  &#8226;   <a href="#py_compile">py_compile</a>
@@ -10980,378 +10975,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="imageio"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/__init__.py" type="text/plain"><tt>imageio</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#imageio.core.v3_api">imageio.core.v3_api</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#cli.py">cli.py</a>
- &#8226;   <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
- &#8226;   <a href="#imageio.plugins.example">imageio.plugins.example</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.config"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/config/__init__.py" type="text/plain"><tt>imageio.config</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.config.extensions">imageio.config.extensions</a>
- &#8226;   <a href="#imageio.config.plugins">imageio.config.plugins</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.config.extensions">imageio.config.extensions</a>
- &#8226;   <a href="#imageio.config.plugins">imageio.config.plugins</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.config.extensions"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/config/extensions.py" type="text/plain"><tt>imageio.config.extensions</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.config.plugins"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/config/plugins.py" type="text/plain"><tt>imageio.config.plugins</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.core.legacy_plugin_wrapper">imageio.core.legacy_plugin_wrapper</a>
- &#8226;   <a href="#importlib">importlib</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/__init__.py" type="text/plain"><tt>imageio.core</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
- &#8226;   <a href="#imageio.core.findlib">imageio.core.findlib</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
- &#8226;   <a href="#imageio.core.v3_api">imageio.core.v3_api</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
- &#8226;   <a href="#imageio.core.findlib">imageio.core.findlib</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#imageio.core.legacy_plugin_wrapper">imageio.core.legacy_plugin_wrapper</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
- &#8226;   <a href="#imageio.core.v3_api">imageio.core.v3_api</a>
- &#8226;   <a href="#imageio.plugins.example">imageio.plugins.example</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.fetching"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/fetching.py" type="text/plain"><tt>imageio.core.fetching</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#math">math</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#shutil">shutil</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#time">time</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.core">imageio.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.findlib"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/findlib.py" type="text/plain"><tt>imageio.core.findlib</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#ctypes">ctypes</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.core">imageio.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.format"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/format.py" type="text/plain"><tt>imageio.core.format</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.config.plugins">imageio.config.plugins</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
- &#8226;   <a href="#numpy">numpy</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.core">imageio.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.functions"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/functions.py" type="text/plain"><tt>imageio.core.functions</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#numbers">numbers</a>
- &#8226;   <a href="#numpy">numpy</a>
- &#8226;   <a href="#re">re</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio">imageio</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.imopen"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/imopen.py" type="text/plain"><tt>imageio.core.imopen</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.config">imageio.config</a>
- &#8226;   <a href="#imageio.config.extensions">imageio.config.extensions</a>
- &#8226;   <a href="#imageio.config.plugins">imageio.config.plugins</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
- &#8226;   <a href="#imageio.core.v3_api">imageio.core.v3_api</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.legacy_plugin_wrapper"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/legacy_plugin_wrapper.py" type="text/plain"><tt>imageio.core.legacy_plugin_wrapper</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
- &#8226;   <a href="#numpy">numpy</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.config.plugins">imageio.config.plugins</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.request"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/request.py" type="text/plain"><tt>imageio.core.request</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#enum">enum</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pathlib">pathlib</a>
- &#8226;   <a href="#shutil">shutil</a>
- &#8226;   <a href="#tempfile">tempfile</a>
- &#8226;   <a href="#urllib.parse">urllib.parse</a>
- &#8226;   <a href="#warnings">warnings</a>
- &#8226;   <a href="#zipfile">zipfile</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#imageio.core.legacy_plugin_wrapper">imageio.core.legacy_plugin_wrapper</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.util"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/util.py" type="text/plain"><tt>imageio.core.util</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#collections">collections</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imp">imp</a>
- &#8226;   <a href="#importlib">importlib</a>
- &#8226;   <a href="#logging">logging</a>
- &#8226;   <a href="#numpy">numpy</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#pkg_resources">pkg_resources</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#struct">struct</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#urllib.request">urllib.request</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.core">imageio.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.core.v3_api"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/core/v3_api.py" type="text/plain"><tt>imageio.core.v3_api</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#numpy">numpy</a>
- &#8226;   <a href="#typing">typing</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.plugins"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/plugins/__init__.py" type="text/plain"><tt>imageio.plugins</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
- &#8226;   <a href="#imageio.plugins.example">imageio.plugins.example</a>
- &#8226;   <a href="#importlib">importlib</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
- &#8226;   <a href="#imageio.plugins.example">imageio.plugins.example</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="imageio.plugins.example"></a>
-  <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio/plugins/example.py" type="text/plain"><tt>imageio.plugins.example</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#imageio">imageio</a>
- &#8226;   <a href="#imageio.core">imageio.core</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
- &#8226;   <a href="#numpy">numpy</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#imageio.plugins">imageio.plugins</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="imageio_ffmpeg"></a>
   <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/site-packages/imageio_ffmpeg/__init__.py" type="text/plain"><tt>imageio_ffmpeg</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
@@ -11483,7 +11106,6 @@ imported by:
  &#8226;   <a href="#PyInstaller.lib.modulegraph.util">PyInstaller.lib.modulegraph.util</a>
  &#8226;   <a href="#cffi.vengine_cpy">cffi.vengine_cpy</a>
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
  &#8226;   <a href="#pkg_resources._vendor.packaging.tags">pkg_resources._vendor.packaging.tags</a>
  &#8226;   <a href="#setuptools._vendor.packaging.tags">setuptools._vendor.packaging.tags</a>
@@ -11512,9 +11134,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#_distutils_hack">_distutils_hack</a>
- &#8226;   <a href="#imageio.config.plugins">imageio.config.plugins</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
  &#8226;   <a href="#imp">imp</a>
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
@@ -11527,6 +11146,7 @@ imported by:
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
  &#8226;   <a href="#pkgutil">pkgutil</a>
+ &#8226;   <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
  &#8226;   <a href="#setuptools.config">setuptools.config</a>
  &#8226;   <a href="#setuptools.monkey">setuptools.monkey</a>
  &#8226;   <a href="#setuptools.py34compat">setuptools.py34compat</a>
@@ -11852,7 +11472,6 @@ imported by:
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#lib2to3.patcomp">lib2to3.patcomp</a>
  &#8226;   <a href="#lib2to3.pgen2.driver">lib2to3.pgen2.driver</a>
@@ -12011,6 +11630,7 @@ imported by:
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
  &#8226;   <a href="#json.scanner">json.scanner</a>
+ &#8226;   <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
 
   </div>
@@ -12185,7 +11805,6 @@ imported by:
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#hashlib">hashlib</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#imageio_ffmpeg._utils">imageio_ffmpeg._utils</a>
  &#8226;   <a href="#lib2to3.btm_matcher">lib2to3.btm_matcher</a>
  &#8226;   <a href="#lib2to3.pgen2.driver">lib2to3.pgen2.driver</a>
@@ -12258,7 +11877,6 @@ imported by:
  &#8226;   <a href="#asyncio.windows_events">asyncio.windows_events</a>
  &#8226;   <a href="#datetime">datetime</a>
  &#8226;   <a href="#fractions">fractions</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
  &#8226;   <a href="#numpy.core.machar">numpy.core.machar</a>
  &#8226;   <a href="#numpy.lib">numpy.lib</a>
  &#8226;   <a href="#numpy.lib.index_tricks">numpy.lib.index_tricks</a>
@@ -13163,8 +12781,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#cli.py">cli.py</a>
- &#8226;   <a href="#mysql.connector">mysql.connector</a>
+    <a href="#mysql.connector">mysql.connector</a>
  &#8226;   <a href="#mysql.connector.abstracts">mysql.connector.abstracts</a>
  &#8226;   <a href="#mysql.connector.authentication">mysql.connector.authentication</a>
  &#8226;   <a href="#mysql.connector.charsets">mysql.connector.charsets</a>
@@ -13185,7 +12802,7 @@ imported by:
  &#8226;   <a href="#mysql.connector.protocol">mysql.connector.protocol</a>
  &#8226;   <a href="#mysql.connector.utils">mysql.connector.utils</a>
  &#8226;   <a href="#mysql.connector.version">mysql.connector.version</a>
- &#8226;   <a href="#scrpt.db_connection">scrpt.db_connection</a>
+ &#8226;   <a href="#scrpt.database_connection">scrpt.database_connection</a>
 
   </div>
 
@@ -13486,7 +13103,7 @@ imported by:
     <a href="#mysql.connector">mysql.connector</a>
  &#8226;   <a href="#mysql.connector.cursor_cext">mysql.connector.cursor_cext</a>
  &#8226;   <a href="#mysql.connector.locales">mysql.connector.locales</a>
- &#8226;   <a href="#scrpt.db_connection">scrpt.db_connection</a>
+ &#8226;   <a href="#scrpt.database_connection">scrpt.database_connection</a>
 
   </div>
 
@@ -13808,7 +13425,6 @@ imported by:
  &#8226;   <a href="#PIL.TiffImagePlugin">PIL.TiffImagePlugin</a>
  &#8226;   <a href="#_pydecimal">_pydecimal</a>
  &#8226;   <a href="#fractions">fractions</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
  &#8226;   <a href="#numpy.core.arrayprint">numpy.core.arrayprint</a>
  &#8226;   <a href="#numpy.core.numeric">numpy.core.numeric</a>
  &#8226;   <a href="#numpy.core.numerictypes">numpy.core.numerictypes</a>
@@ -13863,12 +13479,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#PIL.Image">PIL.Image</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
- &#8226;   <a href="#imageio.core.legacy_plugin_wrapper">imageio.core.legacy_plugin_wrapper</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
- &#8226;   <a href="#imageio.core.v3_api">imageio.core.v3_api</a>
- &#8226;   <a href="#imageio.plugins.example">imageio.plugins.example</a>
  &#8226;   <a href="#numpy">numpy</a>
  &#8226;   <a href="#numpy.__config__">numpy.__config__</a>
  &#8226;   <a href="#numpy._distributor_init">numpy._distributor_init</a>
@@ -17159,7 +16769,7 @@ imported by:
   <a target="code" href="" type="text/plain"><tt>org</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
 imported by:
-    <a href="#pickle">pickle</a>
+    <a href="#copy">copy</a>
 
   </div>
 
@@ -17303,11 +16913,6 @@ imported by:
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
- &#8226;   <a href="#imageio.core.findlib">imageio.core.findlib</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
  &#8226;   <a href="#imageio_ffmpeg._utils">imageio_ffmpeg._utils</a>
  &#8226;   <a href="#imp">imp</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
@@ -17418,7 +17023,6 @@ imported by:
  &#8226;   <a href="#scipy.__config__">scipy.__config__</a>
  &#8226;   <a href="#scipy._distributor_init">scipy._distributor_init</a>
  &#8226;   <a href="#scipy._lib._testutils">scipy._lib._testutils</a>
- &#8226;   <a href="#scrpt.__main__">scrpt.__main__</a>
  &#8226;   <a href="#setuptools">setuptools</a>
  &#8226;   <a href="#setuptools._imp">setuptools._imp</a>
  &#8226;   <a href="#setuptools._vendor.packaging.markers">setuptools._vendor.packaging.markers</a>
@@ -17500,10 +17104,6 @@ imported by:
  &#8226;   <a href="#PIL._util">PIL._util</a>
  &#8226;   <a href="#PyInstaller.utils.hooks">PyInstaller.utils.hooks</a>
  &#8226;   <a href="#PyInstaller.utils.hooks.conda">PyInstaller.utils.hooks.conda</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#imageio.core.legacy_plugin_wrapper">imageio.core.legacy_plugin_wrapper</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#imageio_ffmpeg._io">imageio_ffmpeg._io</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
@@ -17571,7 +17171,8 @@ imported by:
   <a target="code" href="///C:/users/arthu/appdata/local/programs/python/python39/lib/pickle.py" type="text/plain"><tt>pickle</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#_compat_pickle">_compat_pickle</a>
+    <a href="#'org.python'">'org.python'</a>
+ &#8226;   <a href="#_compat_pickle">_compat_pickle</a>
  &#8226;   <a href="#_pickle">_pickle</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#copyreg">copyreg</a>
@@ -17579,7 +17180,6 @@ imports:
  &#8226;   <a href="#functools">functools</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#itertools">itertools</a>
- &#8226;   <a href="#org">org</a>
  &#8226;   <a href="#pprint">pprint</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#struct">struct</a>
@@ -17676,7 +17276,6 @@ imported by:
  &#8226;   <a href="#PyInstaller.lib.modulegraph.modulegraph">PyInstaller.lib.modulegraph.modulegraph</a>
  &#8226;   <a href="#PyInstaller.utils.hooks">PyInstaller.utils.hooks</a>
  &#8226;   <a href="#altgraph">altgraph</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#imageio_ffmpeg._utils">imageio_ffmpeg._utils</a>
  &#8226;   <a href="#pkg_resources._vendor">pkg_resources._vendor</a>
  &#8226;   <a href="#pkg_resources.extern">pkg_resources.extern</a>
@@ -18868,8 +18467,6 @@ imported by:
  &#8226;   <a href="#html">html</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#imageio.core.functions">imageio.core.functions</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#imageio_ffmpeg._parsing">imageio_ffmpeg._parsing</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
@@ -19051,28 +18648,25 @@ imported by:
   <a target="code" href="-" type="text/plain"><tt>scrpt</tt></a>
 <span class="moduletype">NamespacePackage</span>  <div class="import">
 imported by:
-    <a href="#scrpt.__main__">scrpt.__main__</a>
- &#8226;   <a href="#scrpt.db_connection">scrpt.db_connection</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
+    <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
+ &#8226;   <a href="#scrpt.database_connection">scrpt.database_connection</a>
 
   </div>
 
 </div>
 
 <div class="node">
-  <a name="scrpt.__main__"></a>
-  <a target="code" href="///C:/Users/arthu/Desktop/Video_Renaming_App/V1.3/scrpt/__main__.py" type="text/plain"><tt>scrpt.__main__</tt></a>
+  <a name="scrpt.check_version_and_update"></a>
+  <a target="code" href="///C:/Users/arthu/Documents/GitHub/Gait_Lab_Video_Renaming_Tool/scrpt/check_version_and_update.py" type="text/plain"><tt>scrpt.check_version_and_update</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#datetime">datetime</a>
- &#8226;   <a href="#os">os</a>
+    <a href="#importlib">importlib</a>
+ &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#scrpt">scrpt</a>
- &#8226;   <a href="#scrpt.db_connection">scrpt.db_connection</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
- &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#scrpt.database_connection">scrpt.database_connection</a>
+ &#8226;   <a href="#socket">socket</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#tkinter">tkinter</a>
- &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
 
   </div>
   <div class="import">
@@ -19084,8 +18678,8 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="scrpt.db_connection"></a>
-  <a target="code" href="///C:/Users/arthu/Desktop/Video_Renaming_App/V1.3/scrpt/db_connection.py" type="text/plain"><tt>scrpt.db_connection</tt></a>
+  <a name="scrpt.database_connection"></a>
+  <a target="code" href="///C:/Users/arthu/Documents/GitHub/Gait_Lab_Video_Renaming_Tool/scrpt/database_connection.py" type="text/plain"><tt>scrpt.database_connection</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#__future__">__future__</a>
@@ -19097,30 +18691,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scrpt.__main__">scrpt.__main__</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="scrpt.tkvideo_tim"></a>
-  <a target="code" href="///C:/Users/arthu/Desktop/Video_Renaming_App/V1.3/scrpt/tkvideo_tim.py" type="text/plain"><tt>scrpt.tkvideo_tim</tt></a>
-<span class="moduletype">SourceModule</span>  <div class="import">
-imports:
-    <a href="#PIL">PIL</a>
- &#8226;   <a href="#PIL.Image">PIL.Image</a>
- &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
- &#8226;   <a href="#imageio">imageio</a>
- &#8226;   <a href="#scrpt">scrpt</a>
- &#8226;   <a href="#threading">threading</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#tkinter">tkinter</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#scrpt.__main__">scrpt.__main__</a>
+    <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
 
   </div>
 
@@ -20499,8 +20070,6 @@ imported by:
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#http.server">http.server</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#numpy.distutils.ccompiler">numpy.distutils.ccompiler</a>
  &#8226;   <a href="#numpy.distutils.command.build_clib">numpy.distutils.command.build_clib</a>
@@ -20509,7 +20078,6 @@ imported by:
  &#8226;   <a href="#numpy.f2py.f2py2e">numpy.f2py.f2py2e</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
  &#8226;   <a href="#numpy.testing._private.utils">numpy.testing._private.utils</a>
- &#8226;   <a href="#scrpt.__main__">scrpt.__main__</a>
  &#8226;   <a href="#setuptools.archive_util">setuptools.archive_util</a>
  &#8226;   <a href="#setuptools.command.easy_install">setuptools.command.easy_install</a>
  &#8226;   <a href="#setuptools.package_index">setuptools.package_index</a>
@@ -20607,7 +20175,8 @@ imported by:
  &#8226;   <a href="#mysql.connector.connection_cext">mysql.connector.connection_cext</a>
  &#8226;   <a href="#mysql.connector.network">mysql.connector.network</a>
  &#8226;   <a href="#platform">platform</a>
- &#8226;   <a href="#scrpt.db_connection">scrpt.db_connection</a>
+ &#8226;   <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
+ &#8226;   <a href="#scrpt.database_connection">scrpt.database_connection</a>
  &#8226;   <a href="#setuptools.package_index">setuptools.package_index</a>
  &#8226;   <a href="#setuptools.ssl_support">setuptools.ssl_support</a>
  &#8226;   <a href="#socketserver">socketserver</a>
@@ -20888,7 +20457,6 @@ imported by:
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#gettext">gettext</a>
  &#8226;   <a href="#gzip">gzip</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#imageio_ffmpeg._definitions">imageio_ffmpeg._definitions</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.forkserver">multiprocessing.forkserver</a>
@@ -20988,6 +20556,7 @@ imported by:
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_subprocess.py">pyi_rth_subprocess.py</a>
+ &#8226;   <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
  &#8226;   <a href="#setuptools.command.easy_install">setuptools.command.easy_install</a>
  &#8226;   <a href="#setuptools.installer">setuptools.installer</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
@@ -21122,11 +20691,6 @@ imported by:
  &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.server">http.server</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
- &#8226;   <a href="#imageio.core.findlib">imageio.core.findlib</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
- &#8226;   <a href="#imageio.plugins">imageio.plugins</a>
  &#8226;   <a href="#imageio_ffmpeg._definitions">imageio_ffmpeg._definitions</a>
  &#8226;   <a href="#imageio_ffmpeg._io">imageio_ffmpeg._io</a>
  &#8226;   <a href="#imageio_ffmpeg._utils">imageio_ffmpeg._utils</a>
@@ -21246,7 +20810,7 @@ imported by:
  &#8226;   <a href="#scipy">scipy</a>
  &#8226;   <a href="#scipy.__config__">scipy.__config__</a>
  &#8226;   <a href="#scipy._lib._testutils">scipy._lib._testutils</a>
- &#8226;   <a href="#scrpt.__main__">scrpt.__main__</a>
+ &#8226;   <a href="#scrpt.check_version_and_update">scrpt.check_version_and_update</a>
  &#8226;   <a href="#selectors">selectors</a>
  &#8226;   <a href="#setuptools._vendor.packaging._compat">setuptools._vendor.packaging._compat</a>
  &#8226;   <a href="#setuptools._vendor.packaging.markers">setuptools._vendor.packaging.markers</a>
@@ -21419,7 +20983,6 @@ imported by:
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#distutils.ccompiler">distutils.ccompiler</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.heap">multiprocessing.heap</a>
  &#8226;   <a href="#multiprocessing.synchronize">multiprocessing.synchronize</a>
@@ -21556,7 +21119,6 @@ imported by:
  &#8226;   <a href="#pkg_resources._vendor.pyparsing">pkg_resources._vendor.pyparsing</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#queue">queue</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
  &#8226;   <a href="#setuptools._vendor.pyparsing">setuptools._vendor.pyparsing</a>
  &#8226;   <a href="#socketserver">socketserver</a>
  &#8226;   <a href="#subprocess">subprocess</a>
@@ -21595,8 +21157,6 @@ imported by:
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
- &#8226;   <a href="#imageio.core.fetching">imageio.core.fetching</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#imageio_ffmpeg._io">imageio_ffmpeg._io</a>
  &#8226;   <a href="#imageio_ffmpeg._parsing">imageio_ffmpeg._parsing</a>
  &#8226;   <a href="#logging">logging</a>
@@ -21618,7 +21178,6 @@ imported by:
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#queue">queue</a>
  &#8226;   <a href="#random">random</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
  &#8226;   <a href="#setuptools.command.egg_info">setuptools.command.egg_info</a>
  &#8226;   <a href="#socketserver">socketserver</a>
  &#8226;   <a href="#ssl">ssl</a>
@@ -21650,7 +21209,6 @@ imports:
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#tkinter.commondialog">tkinter.commondialog</a>
  &#8226;   <a href="#tkinter.constants">tkinter.constants</a>
- &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
  &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
@@ -21658,8 +21216,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scrpt.__main__">scrpt.__main__</a>
- &#8226;   <a href="#scrpt.tkvideo_tim">scrpt.tkvideo_tim</a>
+    <a href="#cli.py">cli.py</a>
  &#8226;   <a href="#test.support">test.support</a>
  &#8226;   <a href="#tkinter.commondialog">tkinter.commondialog</a>
  &#8226;   <a href="#tkinter.constants">tkinter.constants</a>
@@ -21739,8 +21296,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#scrpt.__main__">scrpt.__main__</a>
- &#8226;   <a href="#tkinter">tkinter</a>
+    <a href="#cli.py">cli.py</a>
 
   </div>
 
@@ -22015,12 +21571,6 @@ imported by:
  &#8226;   <a href="#PyInstaller.utils.hooks.conda">PyInstaller.utils.hooks.conda</a>
  &#8226;   <a href="#asyncio.staggered">asyncio.staggered</a>
  &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#imageio.config.extensions">imageio.config.extensions</a>
- &#8226;   <a href="#imageio.config.plugins">imageio.config.plugins</a>
- &#8226;   <a href="#imageio.core.format">imageio.core.format</a>
- &#8226;   <a href="#imageio.core.imopen">imageio.core.imopen</a>
- &#8226;   <a href="#imageio.core.legacy_plugin_wrapper">imageio.core.legacy_plugin_wrapper</a>
- &#8226;   <a href="#imageio.core.v3_api">imageio.core.v3_api</a>
  &#8226;   <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#importlib_metadata">importlib_metadata</a>
  &#8226;   <a href="#importlib_metadata._compat">importlib_metadata._compat</a>
@@ -22398,7 +21948,6 @@ imported by:
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#mysql.connector.authentication">mysql.connector.authentication</a>
  &#8226;   <a href="#nturl2path">nturl2path</a>
@@ -22472,7 +22021,6 @@ imports:
 imported by:
     <a href="#PyInstaller.lib.modulegraph._compat">PyInstaller.lib.modulegraph._compat</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#imageio.core.util">imageio.core.util</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
  &#8226;   <a href="#setuptools.package_index">setuptools.package_index</a>
  &#8226;   <a href="#setuptools.ssl_support">setuptools.ssl_support</a>
@@ -22629,7 +22177,6 @@ imported by:
  &#8226;   <a href="#hmac">hmac</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#imp">imp</a>
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib.abc">importlib.abc</a>
@@ -23265,7 +22812,6 @@ imported by:
  &#8226;   <a href="#PyInstaller.depend.utils">PyInstaller.depend.utils</a>
  &#8226;   <a href="#PyInstaller.lib.modulegraph.zipio">PyInstaller.lib.modulegraph.zipio</a>
  &#8226;   <a href="#distutils.archive_util">distutils.archive_util</a>
- &#8226;   <a href="#imageio.core.request">imageio.core.request</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#numpy.lib.npyio">numpy.lib.npyio</a>
  &#8226;   <a href="#pkg_resources">pkg_resources</a>
