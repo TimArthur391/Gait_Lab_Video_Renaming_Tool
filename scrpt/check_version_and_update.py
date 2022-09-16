@@ -22,7 +22,7 @@ def get_version_from_database(application_name):
     return latest_version
 
 def get_info_from_application_JSON_file():
-    with open("application_information.JSON", "r") as read_file:
+    with open("helpers\\application_information.JSON", "r") as read_file:
         application_information = json.load(read_file)
 
     return application_information

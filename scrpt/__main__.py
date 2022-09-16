@@ -20,6 +20,7 @@ from os import path
 from shutil import copyfile
 from datetime import datetime
 import scrpt.database_connection as db
+import scrpt.renaming_tools as rt
 
 def main() -> None:
     root.mainloop()
@@ -28,246 +29,258 @@ root = Tk()
 root.title("Gait Lab Video Renaming Tool v1.4")
 root.configure(background='#19232d')
 
-
-def left_rename():
-    if left_button.config('relief')[-1] == 'sunken':
-        left_button.config(relief="raised", bg='#222b35')
+def change_button_relief_on_click(button_name):
+    current_relief = button_names[button_name][0].config('relief')[-1]
+    if current_relief == 'sunken':
+        button_names[button_name][0].config(relief="raised", bg='#222b35')
+    elif current_relief == 'raised':
+        buttons_to_raise = rt.get_button_names(button_name)
+        button_names[button_name][0].config(relief="sunken", bg='#FF5733')
+        for button in buttons_to_raise:
+            button_names[button][0].config(relief="raised", bg='#222b35')
     else:
-        left_button.config(relief="sunken", bg='#FF5733')
-        right_button.config(relief="raised", bg='#222b35')
-        oppL_button.config(relief="raised", bg='#222b35')
-        #oppR_button.config(relief="raised", bg='#222b35')
-        rightSide_button.config(relief="raised", bg='#222b35')
-        leftSide_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+        print('Something has gone wrong')
+    
 
-def right_rename():
-    if right_button.config('relief')[-1] == 'sunken':
-        right_button.config(relief="raised", bg='#222b35')
-    else:
-        right_button.config(relief="sunken", bg='#FF5733')
-        left_button.config(relief="raised", bg='#222b35')
-        #oppL_button.config(relief="raised", bg='#222b35')
-        oppR_button.config(relief="raised", bg='#222b35')
-        rightSide_button.config(relief="raised", bg='#222b35')
-        leftSide_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def left_rename():
+#     if left_button.config('relief')[-1] == 'sunken':
+#         left_button.config(relief="raised", bg='#222b35')
+#     else:
+#         left_button.config(relief="sunken", bg='#FF5733')
+#         right_button.config(relief="raised", bg='#222b35')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         #oppR_button.config(relief="raised", bg='#222b35')
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def sagittal_rename():
-    if sagittal_button.config('relief')[-1] == 'sunken':
-        sagittal_button.config(relief="raised", bg='#222b35')
-    else:
-        sagittal_button.config(relief="sunken", bg='#FF5733')
-        overhead_button.config(relief="raised", bg='#222b35')
-        coronal_button.config(relief="raised", bg='#222b35')
+# def right_rename():
+#     if right_button.config('relief')[-1] == 'sunken':
+#         right_button.config(relief="raised", bg='#222b35')
+#     else:
+#         right_button.config(relief="sunken", bg='#FF5733')
+#         left_button.config(relief="raised", bg='#222b35')
+#         #oppL_button.config(relief="raised", bg='#222b35')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def leftSide_rename():
-    if leftSide_button.config('relief')[-1] == 'sunken':
-        leftSide_button.config(relief="raised", bg='#222b35')
-    else:
-        leftSide_button.config(relief="sunken", bg='#FF5733')
-        rightSide_button.config(relief="raised", bg='#222b35')
-        oppL_button.config(relief="raised", bg='#222b35')
-        #oppR_button.config(relief="raised", bg='#222b35')
-        left_button.config(relief="raised", bg='#222b35')
-        right_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def sagittal_rename():
+#     if sagittal_button.config('relief')[-1] == 'sunken':
+#         sagittal_button.config(relief="raised", bg='#222b35')
+#     else:
+#         sagittal_button.config(relief="sunken", bg='#FF5733')
+#         overhead_button.config(relief="raised", bg='#222b35')
+#         coronal_button.config(relief="raised", bg='#222b35')
 
-def rightSide_rename():
-    if rightSide_button.config('relief')[-1] == 'sunken':
-        rightSide_button.config(relief="raised", bg='#222b35')
-    else:
-        rightSide_button.config(relief="sunken", bg='#FF5733')
-        leftSide_button.config(relief="raised", bg='#222b35')
-        #oppL_button.config(relief="raised", bg='#222b35')
-        oppR_button.config(relief="raised", bg='#222b35')
-        left_button.config(relief="raised", bg='#222b35')
-        right_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def leftSide_rename():
+#     if leftSide_button.config('relief')[-1] == 'sunken':
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#     else:
+#         leftSide_button.config(relief="sunken", bg='#FF5733')
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         #oppR_button.config(relief="raised", bg='#222b35')
+#         left_button.config(relief="raised", bg='#222b35')
+#         right_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def towards_rename():
-    if towards_button.config('relief')[-1] == 'sunken':
-        towards_button.config(relief="raised", bg='#222b35')
-    else:
-        towards_button.config(relief="sunken", bg='#FF5733')
-        away_button.config(relief="raised", bg='#222b35')
-        #oppL_button.config(relief="raised", bg='#222b35')
-        #oppR_button.config(relief="raised", bg='#222b35')
-        #left_button.config(relief="raised", bg='#222b35')
-        #right_button.config(relief="raised", bg='#222b35')
-        #rightSide_button.config(relief="raised", bg='#222b35')
-        #leftSide_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def rightSide_rename():
+#     if rightSide_button.config('relief')[-1] == 'sunken':
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#     else:
+#         rightSide_button.config(relief="sunken", bg='#FF5733')
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#         #oppL_button.config(relief="raised", bg='#222b35')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         left_button.config(relief="raised", bg='#222b35')
+#         right_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def away_rename():
-    if away_button.config('relief')[-1] == 'sunken':
-        away_button.config(relief="raised", bg='#222b35')
-    else:
-        away_button.config(relief="sunken", bg='#FF5733')
-        towards_button.config(relief="raised", bg='#222b35')
-        #oppL_button.config(relief="raised", bg='#222b35')
-        #oppR_button.config(relief="raised", bg='#222b35')
-        #left_button.config(relief="raised", bg='#222b35')
-        #right_button.config(relief="raised", bg='#222b35')
-        #rightSide_button.config(relief="raised", bg='#222b35')
-        #leftSide_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def towards_rename():
+#     if towards_button.config('relief')[-1] == 'sunken':
+#         towards_button.config(relief="raised", bg='#222b35')
+#     else:
+#         towards_button.config(relief="sunken", bg='#FF5733')
+#         away_button.config(relief="raised", bg='#222b35')
+#         #oppL_button.config(relief="raised", bg='#222b35')
+#         #oppR_button.config(relief="raised", bg='#222b35')
+#         #left_button.config(relief="raised", bg='#222b35')
+#         #right_button.config(relief="raised", bg='#222b35')
+#         #rightSide_button.config(relief="raised", bg='#222b35')
+#         #leftSide_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def coronal_rename():
-    if coronal_button.config('relief')[-1] == 'sunken':
-        coronal_button.config(relief="raised", bg='#222b35')
-    else:
-        coronal_button.config(relief="sunken", bg='#FF5733')
-        overhead_button.config(relief="raised", bg='#222b35')
-        sagittal_button.config(relief="raised", bg='#222b35')
+# def away_rename():
+#     if away_button.config('relief')[-1] == 'sunken':
+#         away_button.config(relief="raised", bg='#222b35')
+#     else:
+#         away_button.config(relief="sunken", bg='#FF5733')
+#         towards_button.config(relief="raised", bg='#222b35')
+#         #oppL_button.config(relief="raised", bg='#222b35')
+#         #oppR_button.config(relief="raised", bg='#222b35')
+#         #left_button.config(relief="raised", bg='#222b35')
+#         #right_button.config(relief="raised", bg='#222b35')
+#         #rightSide_button.config(relief="raised", bg='#222b35')
+#         #leftSide_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def feet_rename():
-    if feet_button.config('relief')[-1] == 'sunken':
-        feet_button.config(relief="raised", bg='#222b35')
-    else:
-        feet_button.config(relief="sunken", bg='#FF5733')
+# def coronal_rename():
+#     if coronal_button.config('relief')[-1] == 'sunken':
+#         coronal_button.config(relief="raised", bg='#222b35')
+#     else:
+#         coronal_button.config(relief="sunken", bg='#FF5733')
+#         overhead_button.config(relief="raised", bg='#222b35')
+#         sagittal_button.config(relief="raised", bg='#222b35')
 
-def standing_rename():
-    if standing_button.config('relief')[-1] == 'sunken':
-        standing_button.config(relief="raised", bg='#222b35')
-    else:
-        standing_button.config(relief="sunken", bg='#FF5733')
+# def feet_rename():
+#     if feet_button.config('relief')[-1] == 'sunken':
+#         feet_button.config(relief="raised", bg='#222b35')
+#     else:
+#         feet_button.config(relief="sunken", bg='#FF5733')
 
-def overhead_rename():
-    if overhead_button.config('relief')[-1] == 'sunken':
-        overhead_button.config(relief="raised", bg='#222b35')
-    else:
-        overhead_button.config(relief="sunken", bg='#FF5733')
-        sagittal_button.config(relief="raised", bg='#222b35')
-        coronal_button.config(relief="raised", bg='#222b35')
+# def standing_rename():
+#     if standing_button.config('relief')[-1] == 'sunken':
+#         standing_button.config(relief="raised", bg='#222b35')
+#     else:
+#         standing_button.config(relief="sunken", bg='#FF5733')
 
-def MSES_rename():
-    if MSES_button.config('relief')[-1] == 'sunken':
-        MSES_button.config(relief="raised", bg='#222b35')
-    else:
-        MSES_button.config(relief="sunken", bg='#FF5733')
-        #ICMS_button.config(relief="raised", bg='#222b35')
-        oppL_button.config(relief="raised", bg='#222b35')
-        oppR_button.config(relief="raised", bg='#222b35')
-        #left_button.config(relief="raised", bg='#222b35')
-        #right_button.config(relief="raised", bg='#222b35')
-        #rightSide_button.config(relief="raised", bg='#222b35')
-        #leftSide_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def overhead_rename():
+#     if overhead_button.config('relief')[-1] == 'sunken':
+#         overhead_button.config(relief="raised", bg='#222b35')
+#     else:
+#         overhead_button.config(relief="sunken", bg='#FF5733')
+#         sagittal_button.config(relief="raised", bg='#222b35')
+#         coronal_button.config(relief="raised", bg='#222b35')
 
-def ICMS_rename():
-    if ICMS_button.config('relief')[-1] == 'sunken':
-        ICMS_button.config(relief="raised", bg='#222b35')
-    else:
-        ICMS_button.config(relief="sunken", bg='#FF5733')
-        #MSES_button.config(relief="raised", bg='#222b35')
-        oppL_button.config(relief="raised", bg='#222b35')
-        oppR_button.config(relief="raised", bg='#222b35')
-        #left_button.config(relief="raised", bg='#222b35')
-        #right_button.config(relief="raised", bg='#222b35')
-        #rightSide_button.config(relief="raised", bg='#222b35')
-        #leftSide_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def MSES_rename():
+#     if MSES_button.config('relief')[-1] == 'sunken':
+#         MSES_button.config(relief="raised", bg='#222b35')
+#     else:
+#         MSES_button.config(relief="sunken", bg='#FF5733')
+#         #ICMS_button.config(relief="raised", bg='#222b35')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         #left_button.config(relief="raised", bg='#222b35')
+#         #right_button.config(relief="raised", bg='#222b35')
+#         #rightSide_button.config(relief="raised", bg='#222b35')
+#         #leftSide_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def oppR_rename():
-    if oppR_button.config('relief')[-1] == 'sunken':
-        oppR_button.config(relief="raised", bg='#222b35')
-    else:
-        oppR_button.config(relief="sunken", bg='#FF5733')
-        oppL_button.config(relief="raised", bg='#222b35')
-        #MSES_button.config(relief="raised", bg='#222b35')
-        #ICMS_button.config(relief="raised", bg='#222b35')
-        #left_button.config(relief="raised", bg='#222b35')
-        right_button.config(relief="raised", bg='#222b35')
-        rightSide_button.config(relief="raised", bg='#222b35')
-        #leftSide_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def ICMS_rename():
+#     if ICMS_button.config('relief')[-1] == 'sunken':
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#     else:
+#         ICMS_button.config(relief="sunken", bg='#FF5733')
+#         #MSES_button.config(relief="raised", bg='#222b35')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         #left_button.config(relief="raised", bg='#222b35')
+#         #right_button.config(relief="raised", bg='#222b35')
+#         #rightSide_button.config(relief="raised", bg='#222b35')
+#         #leftSide_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def oppL_rename():
-    if oppL_button.config('relief')[-1] == 'sunken':
-        oppL_button.config(relief="raised", bg='#222b35')
-    else:
-        oppL_button.config(relief="sunken", bg='#FF5733')
-        oppR_button.config(relief="raised", bg='#222b35')
-        #MSES_button.config(relief="raised", bg='#222b35')
-        #ICMS_button.config(relief="raised", bg='#222b35')
-        left_button.config(relief="raised", bg='#222b35')
-        #right_button.config(relief="raised", bg='#222b35')
-        #rightSide_button.config(relief="raised", bg='#222b35')
-        leftSide_button.config(relief="raised", bg='#222b35')
-        #towards_button.config(relief="raised", bg='#222b35')
-        #away_button.config(relief="raised", bg='#222b35')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
+# def oppR_rename():
+#     if oppR_button.config('relief')[-1] == 'sunken':
+#         oppR_button.config(relief="raised", bg='#222b35')
+#     else:
+#         oppR_button.config(relief="sunken", bg='#FF5733')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         #MSES_button.config(relief="raised", bg='#222b35')
+#         #ICMS_button.config(relief="raised", bg='#222b35')
+#         #left_button.config(relief="raised", bg='#222b35')
+#         right_button.config(relief="raised", bg='#222b35')
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#         #leftSide_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def lat_L_med_R_rename():
-    if lat_L_med_R_button.config('relief')[-1] == 'sunken':
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
-    else:
-        lat_L_med_R_button.config(relief="sunken", bg='#FF5733')
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-        oppL_button.config(relief="raised", bg='#222b35')
-        oppR_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        left_button.config(relief="raised", bg='#222b35')
-        right_button.config(relief="raised", bg='#222b35')
-        rightSide_button.config(relief="raised", bg='#222b35')
-        leftSide_button.config(relief="raised", bg='#222b35')
-        towards_button.config(relief="raised", bg='#222b35')
-        away_button.config(relief="raised", bg='#222b35')
+# def oppL_rename():
+#     if oppL_button.config('relief')[-1] == 'sunken':
+#         oppL_button.config(relief="raised", bg='#222b35')
+#     else:
+#         oppL_button.config(relief="sunken", bg='#FF5733')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         #MSES_button.config(relief="raised", bg='#222b35')
+#         #ICMS_button.config(relief="raised", bg='#222b35')
+#         left_button.config(relief="raised", bg='#222b35')
+#         #right_button.config(relief="raised", bg='#222b35')
+#         #rightSide_button.config(relief="raised", bg='#222b35')
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#         #towards_button.config(relief="raised", bg='#222b35')
+#         #away_button.config(relief="raised", bg='#222b35')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
 
-def lat_R_med_L_rename():
-    if lat_R_med_L_button.config('relief')[-1] == 'sunken':
-        lat_R_med_L_button.config(relief="raised", bg='#222b35')
-    else:
-        lat_R_med_L_button.config(relief="sunken", bg='#FF5733')
-        lat_L_med_R_button.config(relief="raised", bg='#222b35')
-        oppL_button.config(relief="raised", bg='#222b35')
-        oppR_button.config(relief="raised", bg='#222b35')
-        MSES_button.config(relief="raised", bg='#222b35')
-        ICMS_button.config(relief="raised", bg='#222b35')
-        left_button.config(relief="raised", bg='#222b35')
-        right_button.config(relief="raised", bg='#222b35')
-        rightSide_button.config(relief="raised", bg='#222b35')
-        leftSide_button.config(relief="raised", bg='#222b35')
-        towards_button.config(relief="raised", bg='#222b35')
-        away_button.config(relief="raised", bg='#222b35')
+# def lat_L_med_R_rename():
+#     if lat_L_med_R_button.config('relief')[-1] == 'sunken':
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
+#     else:
+#         lat_L_med_R_button.config(relief="sunken", bg='#FF5733')
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         left_button.config(relief="raised", bg='#222b35')
+#         right_button.config(relief="raised", bg='#222b35')
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#         towards_button.config(relief="raised", bg='#222b35')
+#         away_button.config(relief="raised", bg='#222b35')
+
+# def lat_R_med_L_rename():
+#     if lat_R_med_L_button.config('relief')[-1] == 'sunken':
+#         lat_R_med_L_button.config(relief="raised", bg='#222b35')
+#     else:
+#         lat_R_med_L_button.config(relief="sunken", bg='#FF5733')
+#         lat_L_med_R_button.config(relief="raised", bg='#222b35')
+#         oppL_button.config(relief="raised", bg='#222b35')
+#         oppR_button.config(relief="raised", bg='#222b35')
+#         MSES_button.config(relief="raised", bg='#222b35')
+#         ICMS_button.config(relief="raised", bg='#222b35')
+#         left_button.config(relief="raised", bg='#222b35')
+#         right_button.config(relief="raised", bg='#222b35')
+#         rightSide_button.config(relief="raised", bg='#222b35')
+#         leftSide_button.config(relief="raised", bg='#222b35')
+#         towards_button.config(relief="raised", bg='#222b35')
+#         away_button.config(relief="raised", bg='#222b35')
 
 def format_name():
     video_name_box.delete(0, END)
@@ -279,58 +292,60 @@ def format_name():
     else:
         filename += orthotic.strip()
 
-    if standing_button.config('relief')[-1] == 'sunken':
-        filename += ' Stand'
+    for button in button_names.keys():
+        if button_names[button][0].config('relief')[-1] == 'sunken':
+            filename += ' ' + button_names[button][1]
 
-    if feet_button.config('relief')[-1] == 'sunken':
-        filename += ' Feet'
+    # if standing_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Stand'
 
-    if overhead_button.config('relief')[-1] == 'sunken':
-        filename += ' Overhead' 
+    # if feet_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Feet'
+
+    # if overhead_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Overhead' 
     
-    if sagittal_button.config('relief')[-1] == 'sunken':
-        filename += ' Sag' 
+    # if sagittal_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Sag' 
 
-    if left_button.config('relief')[-1] == 'sunken':
-        filename += ' L'
+    # if left_button.config('relief')[-1] == 'sunken':
+    #     filename += ' L'
 
-    if right_button.config('relief')[-1] == 'sunken':
-        filename += ' R'
+    # if right_button.config('relief')[-1] == 'sunken':
+    #     filename += ' R'
 
-    if rightSide_button.config('relief')[-1] == 'sunken':
-        filename += ' Right side'
+    # if rightSide_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Right side'
 
-    if leftSide_button.config('relief')[-1] == 'sunken':
-        filename += ' Left side'
+    # if leftSide_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Left side'
 
-    if ICMS_button.config('relief')[-1] == 'sunken':
-        filename += ' IC-MS'
+    # if ICMS_button.config('relief')[-1] == 'sunken':
+    #     filename += ' IC-MS'
 
-    if MSES_button.config('relief')[-1] == 'sunken':
-        filename += ' MS-ES'
+    # if MSES_button.config('relief')[-1] == 'sunken':
+    #     filename += ' MS-ES'
 
-    if oppL_button.config('relief')[-1] == 'sunken':
-        filename += ' Opp L'
+    # if oppL_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Opp L'
 
-    if oppR_button.config('relief')[-1] == 'sunken':
-        filename += ' Opp R'
+    # if oppR_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Opp R'
 
-    if lat_R_med_L_button.config('relief')[-1] == 'sunken':
-        filename += ' Lat R Med L'
+    # if lat_R_med_L_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Lat R Med L'
 
-    if lat_L_med_R_button.config('relief')[-1] == 'sunken':
-        filename += ' Lat L Med R'
+    # if lat_L_med_R_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Lat L Med R'
 
-    if coronal_button.config('relief')[-1] == 'sunken':
-        filename += ' Cor' 
+    # if coronal_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Cor' 
 
-    if towards_button.config('relief')[-1] == 'sunken':
-        filename += ' Twrds'
+    # if towards_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Twrds'
 
-    if away_button.config('relief')[-1] == 'sunken':
-        filename += ' Away'
-
-
+    # if away_button.config('relief')[-1] == 'sunken':
+    #     filename += ' Away'
 
     #VICON NUMBER
     vicon_number = str(vicon_number_box.get())
@@ -360,8 +375,12 @@ def format_name():
     else:
         filename += ' ' + film_date.strip()
 
-    video_name_box.insert(0, filename)
-    next_button.config(state=ACTIVE, relief="raised")
+    if filename != '':
+        video_name_box.insert(0, filename)
+        next_button.config(state=ACTIVE, relief="raised")
+    else:
+        video_name_box.insert(0, filename)
+        next_button.config(state=DISABLED)
     
 def open_files():
     global selected_video
@@ -585,106 +604,100 @@ def replay():
     selected_video += 1
 
 
+#Create and use a grid to organise the tkinter widgets
 my_label = Label(root)
 my_label.grid(row = 0, column = 0, rowspan = 11, sticky = W, padx=(4,4))
 
-video_name_box = Entry(root, bg='#222b35', fg="#ffffff", font=10, width=50, insertbackground="#ffffff")
-orthotic_box = Entry(root, bg='#222b35', fg="#ffffff", font=10, width=35, insertbackground="#ffffff")
-
-orthotic_box_label = Label(root, text="Condition:", bg='#19232d', fg="#ffffff", font=18)
-filenames_box_label = Label(root, text="Videos:", bg='#19232d', fg="#ffffff", font=18)
+#Create the instances of each tkinter widget
+#   Labels
+orthotic_box_label = Label(root,        text="Condition:", bg='#19232d', fg="#ffffff", font=18)
+filenames_box_label = Label(root,       text="Videos:", bg='#19232d', fg="#ffffff", font=18)
 hospital_number_box_label = Label(root, text="Hosp no:", bg='#19232d', fg="#ffffff", font=18)
-vicon_number_box_label = Label(root, text="Vicon no:", bg='#19232d', fg="#ffffff", font=18)
-date_box_label = Label(root, text="Date:", bg='#19232d', fg="#ffffff", font=18)
-trial_number_box_label = Label(root, text="Trial no:", bg='#19232d', fg="#ffffff", font=18)
+vicon_number_box_label = Label(root,    text="Vicon no:", bg='#19232d', fg="#ffffff", font=18)
+date_box_label = Label(root,            text="Date:", bg='#19232d', fg="#ffffff", font=18)
+trial_number_box_label = Label(root,    text="Trial no:", bg='#19232d', fg="#ffffff", font=18)
+#   Buttons
+sagittal_button = Button(root,    text="Sag",         command=lambda:[change_button_relief_on_click("sagittal"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+left_button = Button(root,        text="L",           command=lambda:[change_button_relief_on_click("left"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+right_button = Button(root,       text="R",           command=lambda:[change_button_relief_on_click("right"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+leftSide_button = Button(root,    text="Left side",   command=lambda:[change_button_relief_on_click("left_side"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+rightSide_button = Button(root,   text="Right side",  command=lambda:[change_button_relief_on_click("right_side"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+coronal_button = Button(root,     text="Cor",         command=lambda:[change_button_relief_on_click("coronal"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+towards_button = Button(root,     text="Twrds",       command=lambda:[change_button_relief_on_click("towards"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+away_button = Button(root,        text="Away",        command=lambda:[change_button_relief_on_click("away"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+feet_button = Button(root,        text="Feet",        command=lambda:[change_button_relief_on_click("feet"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+standing_button = Button(root,    text="Stand",       command=lambda:[change_button_relief_on_click("stand"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+lat_L_med_R_button = Button(root, text="Lat L Med R", command=lambda:[change_button_relief_on_click("lat_l_med_r"), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=DISABLED)
+lat_R_med_L_button = Button(root, text="Lat R Med L", command=lambda:[change_button_relief_on_click("lat_r_med_l"), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=DISABLED)
+overhead_button = Button(root,    text="Overhead",    command=lambda:[change_button_relief_on_click("overhead"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+oppL_button = Button(root,        text="Opp L",       command=lambda:[change_button_relief_on_click("opp_left"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+oppR_button = Button(root,        text="Opp R",       command=lambda:[change_button_relief_on_click("opp_right"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+ICMS_button = Button(root,        text="IC-MS",       command=lambda:[change_button_relief_on_click("icms"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+MSES_button = Button(root,        text="MS-ES",       command=lambda:[change_button_relief_on_click("mses"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+next_button = Button(root,        text="Next video",  command=next, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=25, state=DISABLED)
+skip_button = Button(root,        text="Skip",        command=skip, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=DISABLED)
+replay_button = Button(root,      text="Replay",      command=replay, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=DISABLED)
+file_open_button = Button(root,   text="Browse",      command=open_files, bg='#222b35', fg="#ffffff", font=18, width=8)
+button_names = {
+        "stand": [standing_button, "Stand"], "feet": [feet_button, "Feet"], "overhead": [overhead_button, "Overhead"],
+        "coronal": [coronal_button, "Cor"], "towards": [towards_button, "Twrds"], "away": [away_button, "Away"],
+        "sagittal": [sagittal_button, "Sag"], "left": [left_button, "L"], "right": [right_button, "R"],  
+        "left_side": [leftSide_button, "L side"], "right_side": [rightSide_button, "R side"], 
+        "icms": [ICMS_button, "IC-MS"], "mses": [MSES_button, "MS-ES"], "opp_left": [oppL_button, "Opp L"], "opp_right": [oppR_button, "Opp R"],
+        "lat_l_med_r": [lat_L_med_R_button, "Lat L Med R"], "lat_r_med_l": [lat_R_med_L_button, "Lat R Med L"]   
+    }
 
-sagittal_button = Button(root, text="Sag", command=lambda:[sagittal_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-left_button = Button(root, text="L", command=lambda:[left_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-right_button = Button(root, text="R", command=lambda:[right_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-leftSide_button = Button(root, text="Left side", command=lambda:[leftSide_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-rightSide_button = Button(root, text="Right side", command=lambda:[rightSide_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-coronal_button = Button(root, text="Cor", command=lambda:[coronal_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-towards_button = Button(root, text="Twrds", command=lambda:[towards_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-away_button = Button(root, text="Away", command=lambda:[away_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-feet_button = Button(root, text="Feet", command=lambda:[feet_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-standing_button = Button(root, text="Stand", command=lambda:[standing_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-lat_L_med_R_button = Button(root, text="Lat L Med R", command=lambda:[lat_L_med_R_rename(), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=DISABLED)
-lat_R_med_L_button = Button(root, text="Lat R Med L", command=lambda:[lat_R_med_L_rename(), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=DISABLED)
-#lat_right_button = Button(root, text="Lat right", command=lambda:[lat_right_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-#lat_left_button = Button(root, text="Lat left", command=lambda:[lat_left_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-overhead_button = Button(root, text="Overhead", command=lambda:[overhead_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-#med_button = Button(root, text="Overhead", command=lambda:[med_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-#lat_button = Button(root, text="Overhead", command=lambda:[lat_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-oppL_button = Button(root, text="Opp L", command=lambda:[oppL_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-oppR_button = Button(root, text="Opp R", command=lambda:[oppR_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-ICMS_button = Button(root, text="IC-MS", command=lambda:[ICMS_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-MSES_button = Button(root, text="MS-ES", command=lambda:[MSES_rename(), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
+#   Entry text boxes
+video_name_box = Entry(     root, width=50, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+orthotic_box = Entry(       root, width=35, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+filenames_box = Entry(      root, width=25, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+hospital_number_box = Entry(root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+date_box = Entry(           root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+vicon_number_box = Entry(   root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+trial_number_box = Entry(   root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
 
-
-#format_name_button = Button(root, text="Format file name", command=format_name, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=25, state=DISABLED)
-next_button = Button(root, text="Next video", command=next, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=25, state=DISABLED)
-skip_button = Button(root, text="Skip", command=skip, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=DISABLED)
-replay_button = Button(root, text="Replay", command=replay, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=DISABLED)
-
-file_open_button = Button(root, text="Browse", command=open_files, bg='#222b35', fg="#ffffff", font=18, width=8)
-filenames_box = Entry(root, width=25, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-
-hospital_number_box = Entry(root, width=8, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-date_box = Entry(root, width=8, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-vicon_number_box = Entry(root, width=8, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-
-trial_number_box = Entry(root, width=8, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-
+#Placing the widgets onto the GUI ('my_label') grid
+#   Opening files label, entry box and button positions
 filenames_box_label.grid(row=0, column=1, pady=(2,2))
-filenames_box.grid(row=0, column=2, columnspan = 3, pady=(2,2))
-file_open_button.grid(row=0, column=5, pady=(2,8))
-
+filenames_box.grid(      row=0, column=2, columnspan = 3, pady=(2,2))
+file_open_button.grid(   row=0, column=5, pady=(2,8))
+#   Entry box and Label positions
 hospital_number_box_label.grid(row=1, column=1, pady=(8,2))
-hospital_number_box.grid(row=1, column=2, pady=(8,2))
-vicon_number_box_label.grid(row=1, column=4, pady=(8,2))
-vicon_number_box.grid(row=1, column=5, pady=(8,2))
-date_box_label.grid(row=2, column=1, pady=(2,16))
-date_box.grid(row=2, column=2, pady=(2,16))
-trial_number_box_label.grid(row=2, column=4, pady=(2,16))
-trial_number_box.grid(row=2, column=5, pady=(2,16))
-
-orthotic_box_label.grid(row=4, column=1, pady=(16,4))
-orthotic_box.grid(row=4, column=2, columnspan = 4, pady=(16,4))
-
-sagittal_button.grid(row=5, column=1, pady=(6,6))
-coronal_button.grid(row=5, column=2, pady=(6,6))
-feet_button.grid(row=5, column=5, pady=(6,6))
-standing_button.grid(row=5, column=4, pady=(6,6))
-overhead_button.grid(row=5, column=3, pady=(6,6))
-
-#med_button.grid(row=6, column=2, pady=(2,2))
-#lat_button.grid(row=6, column=4, pady=(2,2))
-
-left_button.grid(row=7, column=1, pady=(2,6))
-right_button.grid(row=6, column=1, pady=(6,2))
-oppL_button.grid(row=7, column=2, pady=(2,6))
-oppR_button.grid(row=6, column=2, pady=(6,2))
-leftSide_button.grid(row=7, column=3, pady=(2,6))
-rightSide_button.grid(row=6, column=3, pady=(6,2))
-towards_button.grid(row=7, column=4, pady=(2,6))
-away_button.grid(row=6, column=4, pady=(6,2))
-ICMS_button.grid(row=7, column=5, pady=(2,6))
-MSES_button.grid(row=6, column=5, pady=(6,2))
-
-
-
+hospital_number_box.grid(      row=1, column=2, pady=(8,2))
+vicon_number_box_label.grid(   row=1, column=4, pady=(8,2))
+vicon_number_box.grid(         row=1, column=5, pady=(8,2))
+date_box_label.grid(           row=2, column=1, pady=(2,16))
+date_box.grid(                 row=2, column=2, pady=(2,16))
+trial_number_box_label.grid(   row=2, column=4, pady=(2,16))
+trial_number_box.grid(         row=2, column=5, pady=(2,16))
+orthotic_box_label.grid(       row=4, column=1, pady=(16,4))
+orthotic_box.grid(             row=4, column=2, columnspan = 4, pady=(16,4))
+#   Button positions
+sagittal_button.grid(   row=5, column=1, pady=(6,6))
+coronal_button.grid(    row=5, column=2, pady=(6,6))
+feet_button.grid(       row=5, column=5, pady=(6,6))
+standing_button.grid(   row=5, column=4, pady=(6,6))
+overhead_button.grid(   row=5, column=3, pady=(6,6))
+left_button.grid(       row=7, column=1, pady=(2,6))
+right_button.grid(      row=6, column=1, pady=(6,2))
+oppL_button.grid(       row=7, column=2, pady=(2,6))
+oppR_button.grid(       row=6, column=2, pady=(6,2))
+leftSide_button.grid(   row=7, column=3, pady=(2,6))
+rightSide_button.grid(  row=6, column=3, pady=(6,2))
+towards_button.grid(    row=7, column=4, pady=(2,6))
+away_button.grid(       row=6, column=4, pady=(6,2))
+ICMS_button.grid(       row=7, column=5, pady=(2,6))
+MSES_button.grid(       row=6, column=5, pady=(6,2))
 lat_L_med_R_button.grid(row=8, column=1, columnspan = 3, pady=(6,6))
-#med_left_button.grid(row=8, column=2, pady=(6,6))
 lat_R_med_L_button.grid(row=8, column=3, columnspan = 3, pady=(6,6))
-#lat_left_button.grid(row=8, column=4, pady=(6,6))
+#   video name and skip, next and replay button positions
+video_name_box.grid(row=9,  column=1, columnspan=5, pady=(6,2))
+next_button.grid(   row=10, column=2, columnspan=3, pady=(2,2))
+skip_button.grid(   row=10, column=5, pady=(2,2))
+replay_button.grid( row=10, column=1, pady=(2,2))
 
-video_name_box.grid(row=9, column=1, columnspan=5, pady=(6,2))
-next_button.grid(row=10, column=2, columnspan=3, pady=(2,2))
-skip_button.grid(row=10, column=5, pady=(2,2))
-replay_button.grid(row=10, column=1, pady=(2,2))
-
-#icon_path = path.abspath(path.join(path.dirname(__file__), 'Camcorder_Pro_icon-icons.com_54204.ico'))
-root.iconbitmap('Camcorder_Pro_icon-icons.com_54204.ico')
+#icon_path to be used on the tkinter window
+root.iconbitmap('helpers\\Camcorder_Pro_icon-icons.com_54204.ico')
 
 
 if __name__ == "__main__":

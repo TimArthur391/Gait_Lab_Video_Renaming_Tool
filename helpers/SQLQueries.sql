@@ -1,3 +1,4 @@
+CREATE DATABASE videorenamer;
 USE videorenamer;
 create table usage_log (
 RECORDID int not null AUTO_INCREMENT,
