@@ -1,4 +1,4 @@
-('C:\\Users\\arthu\\Documents\\GitHub\\Gait_Lab_Video_Renaming_Tool\\build\\cli\\Video_Renaming_Tool_V1.4.pkg',
+('C:\\Users\\arthu\\Documents\\GitHub\\Gait_Lab_Video_Renaming_Tool\\build\\cli\\Video_Renaming_Tool_V1.5.pkg',
  {'BINARY': 1,
   'DATA': 1,
   'EXECUTABLE': 1,
