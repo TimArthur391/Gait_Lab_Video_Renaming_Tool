@@ -27,6 +27,14 @@ def get_info_from_application_JSON_file():
 
     return application_information
 
+def get_application_title_string():
+    application_information = get_info_from_application_JSON_file()
+    application_version = application_information["applicationVersion"]
+    application_name = application_information["applicationName"]
+    application_title = application_name.replace('_', ' ') + ' ' + str(application_version)
+    
+    return application_title
+
 def check_update():
     application_information = get_info_from_application_JSON_file()
     application_version = application_information["applicationVersion"]

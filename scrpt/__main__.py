@@ -24,6 +24,7 @@ from shutil import copyfile
 from datetime import datetime
 import scrpt.database_connection as db
 import scrpt.renaming_tools as rt
+import scrpt.check_version_and_update as cvu
 
 def main() -> None:
     root.mainloop()
@@ -268,7 +269,7 @@ def replay():
 
 #Initialise tkinter
 root = Tk()
-root.title("Gait Lab Video Renaming Tool v1.4")
+root.title(cvu.get_application_title_string())
 root.configure(background='#19232d')
 root.iconbitmap('helpers\\Camcorder_Pro_icon-icons.com_54204.ico')
 

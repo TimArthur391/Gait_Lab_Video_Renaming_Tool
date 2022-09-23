@@ -1,3 +1,3 @@
-import scrpt.__main__ as m
+import scrpt.check_version_and_update as cvu
 
-print(m.change_button_relief_on_click("left"))
+print(cvu.get_application_title_string())
