@@ -5,3 +5,5 @@ As part of our daily routine at ORLAU (Robert Jones and Agnes Hunt Orthopaedic H
 This python tool, based upon tkinter and tkinter_video, provides the user with a GUI to significantly speed up the process. The tool is intended to be downloaded off of a central server on local machines. Also implemented in the tool:
 (1) usage data is collected from whomever uses the app locally and sent to a central MySQL server,
 (2) an automatic update process that is trigger when a new version of the tool is published on our department code repository server and a MySQL table is updated.
+
+This project was my first attempt at using GitHub and Git for change control.
