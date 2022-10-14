@@ -4,4 +4,8 @@ dist/
 *.spec
 .vs/
 .venv/
+.env
 basic_tests.py
+helpers/imageio
+helpers/application_information.JSON
+helpers/installation_file_TEST.bat
