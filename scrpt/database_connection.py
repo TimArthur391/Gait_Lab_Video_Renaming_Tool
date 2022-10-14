@@ -2,29 +2,45 @@ from __future__ import print_function
 import mysql.connector
 from mysql.connector import errorcode
 import socket
+import os
+import dotenv
 
 #Call get_request(SQL_statement, database_name) and post_request(SQL_statement, data, database_name)
 #This calls the sub-function connect_to_db
 #Database names = orlau_whr, version_control, videorenamer
 #Examples of usage are give within each function
 
+
 def connect_to_db(database_name):
     try:
+        dotenv.load_dotenv()
+        TEST_HOST_NAME=os.getenv("TEST_HOST_NAME")
+        TEST_MYSQL_USER=os.getenv("TEST_MYSQL_USER")
+        TEST_MYSQL_PASSWORD=os.getenv("TEST_MYSQL_PASSWORD")
+        TEST_MYSQL_PORT=os.getenv("TEST_MYSQL_PORT")
+        TEST_MYSQL_HOST=os.getenv("TEST_MYSQL_HOST")
+        PROD_MYSQL_USER=os.getenv("PROD_MYSQL_USER")
+        PROD_MYSQL_PASSWORD=os.getenv("PROD_MYSQL_PASSWORD")
+        PROD_MYSQL_PORT=os.getenv("PROD_MYSQL_PORT")
+        PROD_MYSQL_HOST=os.getenv("PROD_MYSQL_HOST")
+
+
+
         host=socket.gethostname()
-        if host == 'LAPTOP-KFBV6SUT':
-            cnx = mysql.connector.connect(user='root', 
-                password='6395SQ134cz',
-                host='localhost',
-                port='3306',
+        if host == TEST_HOST_NAME:
+            cnx = mysql.connector.connect(user=TEST_MYSQL_USER, 
+                password=TEST_MYSQL_PASSWORD,
+                host=TEST_MYSQL_HOST,
+                port=TEST_MYSQL_PORT,
                 database=database_name,
                 raise_on_warnings=True)
             print('Database connected successfully')
             return cnx
         else:
-            cnx = mysql.connector.connect(user='Mar-system-user', 
-                password='Thats-mar-bucket',
-                host='10.211.147.242',
-                port='3306',
+            cnx = mysql.connector.connect(user=PROD_MYSQL_USER, 
+                password=PROD_MYSQL_PASSWORD,
+                host=PROD_MYSQL_HOST,
+                port=PROD_MYSQL_PORT,
                 database=database_name,
                 raise_on_warnings=True)
             print('Database connected successfully')
