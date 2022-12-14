@@ -6,4 +6,3 @@ This python tool, based upon tkinter and tkinter_video, provides the user with a
 (1) usage data is collected from whomever uses the app locally and sent to a central MySQL server,
 (2) an automatic update process that is trigger when a new version of the tool is published on our department code repository server and a MySQL table is updated.
 
-This project was my first attempt at using GitHub and Git for change control.
