@@ -14,12 +14,12 @@ print(
 """
 )
 
-from tkinter import *
-from tkinter.filedialog import askopenfilenames
+import tkinter
+import tkinter.filedialog as tkk
+tk = tkinter
 from scrpt.tkvideo_tim import tkvideo
 import os
 import sys
-from os import path
 from shutil import copyfile
 from datetime import datetime
 import scrpt.database_connection as db
@@ -42,7 +42,7 @@ def change_button_relief_on_click(button_name):
         print('Something has gone wrong')
     
 def format_name():
-    video_name_box.delete(0, END)
+    video_name_box.delete(0, tk.END)
     filename = ''
     error_list = []
     orthotic = str(orthotic_box.get())
@@ -85,19 +85,19 @@ def format_name():
 
     if filename != '':
         video_name_box.insert(0, filename)
-        next_button.config(state=ACTIVE, relief="raised")
+        next_button.config(state=tk.ACTIVE, relief="raised")
     else:
         video_name_box.insert(0, filename)
-        next_button.config(state=DISABLED)
+        next_button.config(state=tk.DISABLED)
     
 def open_files():
     global selected_video
     global video_names
     global video_locations
     
-    filenames_box.delete(0, END)
+    filenames_box.delete(0, tk.END)
 
-    root.filename = askopenfilenames(initialdir="C:", title="Select files", filetypes=[
+    root.filename = tkk.askopenfilenames(initialdir="C:", title="Select files", filetypes=[
         ("all video format", ".avi"),
         ("all video format", ".mp4")
         ]) #gives the entire file location
@@ -115,14 +115,14 @@ def open_files():
         video_date = rt.get_session_datetime(root.filename)
         vicon_number = rt.get_vicon_number(root.filename)
 
-        vicon_number_box.delete(0, END)
+        vicon_number_box.delete(0, tk.END)
         vicon_number_box.insert(0, vicon_number)
-        date_box.delete(0, END)
+        date_box.delete(0, tk.END)
         date_box.insert(0, video_date)            
 
         my_label.grid_forget()
         for button in button_names.keys():
-            button_names[button][0].config(state=ACTIVE)
+            button_names[button][0].config(state=tk.ACTIVE)
 
         next()
 
@@ -135,12 +135,12 @@ def next():
     if selected_video == 0:
         old_time = datetime.now()
         if trial_numbers:
-            trial_number_box.delete(0, END)
+            trial_number_box.delete(0, tk.END)
             trial_number_box.insert(0, trial_numbers[selected_video])
 
         my_label.grid_forget()
-        my_label = Label(root)
-        my_label.grid(row = 0, column = 0, rowspan = 11, sticky = W, padx=(4,4))
+        my_label = tk.Label(root)
+        my_label.grid(row = 0, column = 0, rowspan = 11, sticky = tk.W, padx=(4,4))
         path = os.path.join(os.path.dirname(sys.executable), video_locations[selected_video])
         player = tkvideo(path, my_label, loop = 0)
         player.play()
@@ -167,9 +167,9 @@ def next():
         database_name = 'videorenamer'
         db.post_request(SQL_statement, data, database_name)
         
-        next_button.config(state=DISABLED)
-        skip_button.config(state=DISABLED)
-        replay_button.config(state=DISABLED)
+        next_button.config(state=tk.DISABLED)
+        skip_button.config(state=tk.DISABLED)
+        replay_button.config(state=tk.DISABLED)
         print(
 """
 ---------------------------------------------------------
@@ -186,7 +186,7 @@ def next():
         video_name_final = str(video_name_box.get()) + '.AVI'
 
         if trial_numbers:
-            trial_number_box.delete(0, END)
+            trial_number_box.delete(0, tk.END)
             trial_number_box.insert(0, trial_numbers[selected_video])
 
         directory = os.path.dirname(video_locations[selected_video-1])
@@ -208,14 +208,14 @@ def next():
         
         old_time = datetime.now()
 
-        my_label = Label(root)
-        my_label.grid(row = 0, column = 0, rowspan = 11, sticky = W, padx=(4,4))
+        my_label = tk.Label(root)
+        my_label.grid(row = 0, column = 0, rowspan = 11, sticky = tk.W, padx=(4,4))
         path = os.path.join(os.path.dirname(sys.executable), video_locations[selected_video])
         player = tkvideo(path, my_label, loop = 0)
         player.play()
 
     selected_video += 1
-    next_button.config(state=DISABLED, relief="raised")
+    next_button.config(state=tk.DISABLED, relief="raised")
 
 def skip():
     global selected_video
@@ -225,9 +225,9 @@ def skip():
     if selected_video >= len(video_locations):
 
         my_label.grid_forget()
-        next_button.config(state=DISABLED)
-        skip_button.config(state=DISABLED)
-        replay_button.config(state=DISABLED)
+        next_button.config(state=tk.DISABLED)
+        skip_button.config(state=tk.DISABLED)
+        replay_button.config(state=tk.DISABLED)
         print(
 """
 ---------------------------------------------------------
@@ -242,72 +242,72 @@ def skip():
         my_label.grid_forget()
 
         if trial_numbers:
-            trial_number_box.delete(0, END)
+            trial_number_box.delete(0, tk.END)
             trial_number_box.insert(0, trial_numbers[selected_video])   
 
-        my_label = Label(root)
-        my_label.grid(row = 0, column = 0, rowspan = 11, sticky = W, padx=(4,4))
+        my_label = tk.Label(root)
+        my_label.grid(row = 0, column = 0, rowspan = 11, sticky = tk.W, padx=(4,4))
         path = os.path.join(os.path.dirname(sys.executable), video_locations[selected_video])
         player = tkvideo(path, my_label, loop = 0)
         player.play()
         old_time = datetime.now()
 
     selected_video += 1
-    next_button.config(state=DISABLED, relief="raised")
+    next_button.config(state=tk.DISABLED, relief="raised")
 
 def replay():
     global selected_video
     global my_label
     selected_video -= 1
     my_label.grid_forget()
-    my_label = Label(root)
-    my_label.grid(row = 0, column = 0, rowspan = 11, sticky = W, padx=(4,4))
+    my_label = tk.Label(root)
+    my_label.grid(row = 0, column = 0, rowspan = 11, sticky = tk.W, padx=(4,4))
     path = os.path.join(os.path.dirname(sys.executable), video_locations[selected_video])
     player = tkvideo(path, my_label, loop = 0)
     player.play()
     selected_video += 1
 
 #Initialise tkinter
-root = Tk()
+root = tk.Tk()
 root.title(cvu.get_application_title_string())
 root.configure(background='#19232d')
 root.iconbitmap('helpers\\Camcorder_Pro_icon-icons.com_54204.ico')
 
 #Create and use a grid to organise the tkinter widgets
-my_label = Label(root)
-my_label.grid(row = 0, column = 0, rowspan = 11, sticky = W, padx=(4,4))
+my_label = tk.Label(root)
+my_label.grid(row = 0, column = 0, rowspan = 11, sticky = tk.W, padx=(4,4))
 
 #Create the instances of each tkinter widget
 #   Labels
-orthotic_box_label = Label(root,        text="Condition:", bg='#19232d', fg="#ffffff", font=18)
-filenames_box_label = Label(root,       text="Videos:", bg='#19232d', fg="#ffffff", font=18)
-hospital_number_box_label = Label(root, text="Hosp no:", bg='#19232d', fg="#ffffff", font=18)
-vicon_number_box_label = Label(root,    text="Vicon no:", bg='#19232d', fg="#ffffff", font=18)
-date_box_label = Label(root,            text="Date:", bg='#19232d', fg="#ffffff", font=18)
-trial_number_box_label = Label(root,    text="Trial no:", bg='#19232d', fg="#ffffff", font=18)
+orthotic_box_label = tk.Label(root,        text="Condition:", bg='#19232d', fg="#ffffff", font=18)
+filenames_box_label = tk.Label(root,       text="Videos:", bg='#19232d', fg="#ffffff", font=18)
+hospital_number_box_label = tk.Label(root, text="Hosp no:", bg='#19232d', fg="#ffffff", font=18)
+vicon_number_box_label = tk.Label(root,    text="Vicon no:", bg='#19232d', fg="#ffffff", font=18)
+date_box_label = tk.Label(root,            text="Date:", bg='#19232d', fg="#ffffff", font=18)
+trial_number_box_label = tk.Label(root,    text="Trial no:", bg='#19232d', fg="#ffffff", font=18)
 
 #   Buttons
-sagittal_button = Button(root,    text="Sag",         command=lambda:[change_button_relief_on_click("sagittal"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-left_button = Button(root,        text="L",           command=lambda:[change_button_relief_on_click("left"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-right_button = Button(root,       text="R",           command=lambda:[change_button_relief_on_click("right"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-leftSide_button = Button(root,    text="Left side",   command=lambda:[change_button_relief_on_click("left_side"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-rightSide_button = Button(root,   text="Right side",  command=lambda:[change_button_relief_on_click("right_side"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-coronal_button = Button(root,     text="Cor",         command=lambda:[change_button_relief_on_click("coronal"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-towards_button = Button(root,     text="Twrds",       command=lambda:[change_button_relief_on_click("towards"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-away_button = Button(root,        text="Away",        command=lambda:[change_button_relief_on_click("away"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-feet_button = Button(root,        text="Feet",        command=lambda:[change_button_relief_on_click("feet"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-standing_button = Button(root,    text="Stand",       command=lambda:[change_button_relief_on_click("stand"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-lat_L_med_R_button = Button(root, text="Lat L Med R", command=lambda:[change_button_relief_on_click("lat_l_med_r"), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=DISABLED)
-lat_R_med_L_button = Button(root, text="Lat R Med L", command=lambda:[change_button_relief_on_click("lat_r_med_l"), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=DISABLED)
-overhead_button = Button(root,    text="Overhead",    command=lambda:[change_button_relief_on_click("overhead"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-oppL_button = Button(root,        text="Opp L",       command=lambda:[change_button_relief_on_click("opp_left"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-oppR_button = Button(root,        text="Opp R",       command=lambda:[change_button_relief_on_click("opp_right"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-ICMS_button = Button(root,        text="IC-MS",       command=lambda:[change_button_relief_on_click("icms"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-MSES_button = Button(root,        text="MS-ES",       command=lambda:[change_button_relief_on_click("mses"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=DISABLED)
-next_button = Button(root,        text="Next video",  command=next, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=25, state=DISABLED)
-skip_button = Button(root,        text="Skip",        command=skip, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=DISABLED)
-replay_button = Button(root,      text="Replay",      command=replay, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=DISABLED)
-file_open_button = Button(root,   text="Browse",      command=open_files, bg='#222b35', fg="#ffffff", font=18, width=8)
+sagittal_button = tk.Button(root,    text="Sag",         command=lambda:[change_button_relief_on_click("sagittal"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+left_button = tk.Button(root,        text="L",           command=lambda:[change_button_relief_on_click("left"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+right_button = tk.Button(root,       text="R",           command=lambda:[change_button_relief_on_click("right"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+leftSide_button = tk.Button(root,    text="Left side",   command=lambda:[change_button_relief_on_click("left_side"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+rightSide_button = tk.Button(root,   text="Right side",  command=lambda:[change_button_relief_on_click("right_side"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+coronal_button = tk.Button(root,     text="Cor",         command=lambda:[change_button_relief_on_click("coronal"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+towards_button = tk.Button(root,     text="Twrds",       command=lambda:[change_button_relief_on_click("towards"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+away_button = tk.Button(root,        text="Away",        command=lambda:[change_button_relief_on_click("away"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+feet_button = tk.Button(root,        text="Feet",        command=lambda:[change_button_relief_on_click("feet"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+standing_button = tk.Button(root,    text="Stand",       command=lambda:[change_button_relief_on_click("stand"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+lat_L_med_R_button = tk.Button(root, text="Lat L Med R", command=lambda:[change_button_relief_on_click("lat_l_med_r"), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=tk.DISABLED)
+lat_R_med_L_button = tk.Button(root, text="Lat R Med L", command=lambda:[change_button_relief_on_click("lat_r_med_l"), format_name()], bg='#222b35', fg="#ffffff", width=13, font=18, relief="raised", state=tk.DISABLED)
+overhead_button = tk.Button(root,    text="Overhead",    command=lambda:[change_button_relief_on_click("overhead"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+oppL_button = tk.Button(root,        text="Opp L",       command=lambda:[change_button_relief_on_click("opp_left"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+oppR_button = tk.Button(root,        text="Opp R",       command=lambda:[change_button_relief_on_click("opp_right"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+ICMS_button = tk.Button(root,        text="IC-MS",       command=lambda:[change_button_relief_on_click("icms"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+MSES_button = tk.Button(root,        text="MS-ES",       command=lambda:[change_button_relief_on_click("mses"), format_name()], bg='#222b35', fg="#ffffff", width=8, font=18, relief="raised", state=tk.DISABLED)
+next_button = tk.Button(root,        text="Next video",  command=next, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=25, state=tk.DISABLED)
+skip_button = tk.Button(root,        text="Skip",        command=skip, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=tk.DISABLED)
+replay_button = tk.Button(root,      text="Replay",      command=replay, bg='#222b35', fg="#ffffff", font=18, relief="raised", width=8, state=tk.DISABLED)
+file_open_button = tk.Button(root,   text="Browse",      command=open_files, bg='#222b35', fg="#ffffff", font=18, width=8)
 button_names = {
         "stand": [standing_button, "Stand"], "feet": [feet_button, "Feet"], "overhead": [overhead_button, "Overhead"],
         "coronal": [coronal_button, "Cor"], "towards": [towards_button, "Twrds"], "away": [away_button, "Away"],
@@ -318,13 +318,13 @@ button_names = {
     }
 
 #   Entry text boxes
-video_name_box = Entry(     root, width=50, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-orthotic_box = Entry(       root, width=35, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-filenames_box = Entry(      root, width=25, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-hospital_number_box = Entry(root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-date_box = Entry(           root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-vicon_number_box = Entry(   root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
-trial_number_box = Entry(   root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+video_name_box = tk.Entry(     root, width=50, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+orthotic_box = tk.Entry(       root, width=35, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+filenames_box = tk.Entry(      root, width=25, bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+hospital_number_box = tk.Entry(root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+date_box = tk.Entry(           root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+vicon_number_box = tk.Entry(   root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
+trial_number_box = tk.Entry(   root, width=8,  bg='#222b35', fg="#ffffff", font=10, insertbackground="#ffffff")
 
 #Placing the widgets onto the GUI ('my_label') grid
 #   Opening files label, entry box and button positions

@@ -2,3 +2,5 @@
 10 Jun 2022 12:46:00    arthu    ERROR: No module named 'db_connection'
 01 Sep 2022 10:23:49    arthu    ERROR: [Errno 2] No such file or directory: 'application_information.JSON'
 21 Sep 2022 10:43:26    arthu    ERROR: 'type' object does not support item assignment
+18 Oct 2022 11:14:18    arthu    ERROR: No module named 'mysql'
+18 Oct 2022 13:16:48    arthu    ERROR: cannot import name 'askopenfilenames' from 'tk' (C:\Users\arthu\Documents\GitHub\Gait_Lab_Video_Renaming_Tool\.venv\lib\site-packages\tk\__init__.py)

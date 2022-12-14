@@ -1,6 +1,6 @@
 {
     "applicationName": "Gait_Lab_Video_Renaming_Tool",
-    "applicationVersion": 1.5,
+    "applicationVersion": 1.6,
     "pathToInstallationBATFileProduction": "A:\\Code_repository\\Matlab_Python_Code\\Validated\\25_Gait_Lab_Video_Renaming_Tool\\INSTALLATION_FILE.bat",
     "pathToInstallationBATFileTest": "C:\\Users\\arthu\\Documents\\GitHub\\Gait_Lab_Video_Renaming_Tool\\helpers\\installation_file_TEST.bat",
     "applicationLaunchScript" : "scrpt.__main__",
