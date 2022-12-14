@@ -8,3 +8,6 @@ dist/
 basic_tests.py
 helpers/imageio
 helpers/installation_file_TEST.bat
+helpers/dotenv
+helpers/PIL
+helpers/imageio_ffmpeg
