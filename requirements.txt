@@ -7,7 +7,6 @@ mysql-connector-python==8.0.31
 numpy==1.23.5
 pefile==2022.5.30
 Pillow==9.3.0
-protobuf==3.20.1
 pyinstaller==5.7.0
 pyinstaller-hooks-contrib==2022.14
 python-dotenv==0.21.0
