@@ -24,7 +24,7 @@ from shutil import copyfile
 from datetime import datetime
 import scrpt.database_connection as db
 import scrpt.renaming_tools as rt
-import scrpt.check_version_and_update as cvu
+import json
 
 def main() -> None:
     root.mainloop()
@@ -267,9 +267,23 @@ def replay():
     player.play()
     selected_video += 1
 
+def get_info_from_application_JSON_file():
+    with open("helpers\\application_information.JSON", "r") as read_file:
+        application_information = json.load(read_file)
+
+    return application_information
+
+def get_application_title_string():
+    application_information = get_info_from_application_JSON_file()
+    application_version = application_information["applicationVersion"]
+    application_name = application_information["applicationName"]
+    application_title = application_name.replace('_', ' ') + ' ' + str(application_version)
+    
+    return application_title
+
 #Initialise tkinter
 root = tk.Tk()
-root.title(cvu.get_application_title_string())
+root.title(get_application_title_string())
 root.configure(background='#19232d')
 root.iconbitmap('helpers\\Camcorder_Pro_icon-icons.com_54204.ico')
 

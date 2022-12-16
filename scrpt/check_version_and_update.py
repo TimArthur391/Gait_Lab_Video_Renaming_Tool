@@ -1,4 +1,5 @@
 import scrpt.database_connection as db
+from scrpt.__main__ import main
 import json
 import subprocess
 import socket
@@ -99,10 +100,7 @@ def update_program():
         subprocess.run([installation_file_path])
 
 def launch_program():
-    application_information = get_info_from_application_JSON_file()
-    launch_script = application_information['applicationLaunchScript']
-    main_script = importlib.import_module(launch_script)
-    sys.exit(main_script.main())
+    sys.exit(main())
 
 if __name__ == '__main__':
     check_update()

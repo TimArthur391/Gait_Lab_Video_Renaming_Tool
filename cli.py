@@ -1,10 +1,7 @@
 try:
-    import sys
-    import scrpt.check_version_and_update as cvu
-    
-
+    from scrpt.check_version_and_update import check_update
     if __name__ == '__main__':
-        sys.exit(cvu.check_update())
+        check_update()
 except Exception as Argument:
     import time
     import os

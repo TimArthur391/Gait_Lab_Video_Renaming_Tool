@@ -1,13 +1,9 @@
 __pycache__/
 build/
 dist/
-*.spec
 .vs/
 .venv/
 .env
+.conda/
 basic_tests.py
-helpers/imageio
 helpers/installation_file_TEST.bat
-helpers/dotenv
-helpers/PIL
-helpers/imageio_ffmpeg
